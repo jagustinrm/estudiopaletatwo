@@ -1,8 +1,22 @@
 ---
-import Layout from "../layouts/Layout.astro"
-import Hero from "../components/Hero.astro"
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import ShippingAndPaymentInfo from "../components/ShippingAndPaymentInfo.astro";
+import Gallery from "../components/Gallery.astro";
+
+import allProducts from "../data/products.json";  // Importa el archivo JSON directamente
+
+const itemsPerPage = 8;
+const page = 1;
+
+const paginatedProducts = allProducts.slice((page - 1) * itemsPerPage, page * itemsPerPage);
+const totalPages = Math.ceil(allProducts.length / itemsPerPage);
 ---
+
 
 <Layout>
 <Hero/>
+<Gallery  products={paginatedProducts} totalPages={totalPages} currentPage={page}/>
+<ShippingAndPaymentInfo/>
 </Layout>
+

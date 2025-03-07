@@ -1,0 +1,50 @@
+---
+const { products, totalPages, currentPage } = Astro.props;
+
+const itemsPerPage: number = 8;
+
+function handlePageChange(newPage: number): void {
+  console.log(`Página cambiada a: ${newPage}`);
+}
+---
+
+<div>
+  <!-- Mostrar la galería de productos -->
+  <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mt-8">
+    {products.map((product: { id: number; img: string; name: string; description: string; price: number }) => (
+      <div class="bg-white p-4 rounded-lg shadow-md">
+        <img 
+          src={product.img} 
+          alt={product.name} 
+          class="w-full h-48 object-cover rounded-t-lg"
+        />
+        <div class="mt-2">
+          <h3 class="font-semibold text-lg">{product.name}</h3>
+          <p class="text-sm text-gray-600">{product.description}</p>
+          <p class="mt-2 text-xl font-bold">${product.price}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Paginación -->
+  <div class="flex justify-between items-center mt-4">
+    <button 
+      class="px-4 py-2 bg-blue-500 text-white rounded-lg"
+      onclick={() => handlePageChange(currentPage - 1)}
+      disabled={currentPage === 1}
+    >
+      Anterior
+    </button>
+    <span class="text-lg">
+      Página {currentPage} de {totalPages}
+    </span>
+    <button 
+      class="px-4 py-2 bg-blue-500 text-white rounded-lg"
+      onclick={() => handlePageChange(currentPage + 1)}
+      disabled={currentPage === totalPages}
+    >
+      Siguiente
+    </button>
+  </div>
+</div>
