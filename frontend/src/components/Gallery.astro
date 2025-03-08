@@ -8,11 +8,11 @@ function handlePageChange(newPage: number): void {
 }
 ---
 
-<div>
+<div class="flex flex-col justify-center items-center">
   <!-- Mostrar la galería de productos -->
-  <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mt-8">
+  <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mt-8 ">
     {products.map((product: { id: number; img: string; name: string; description: string; price: number }) => (
-      <div class="bg-white p-4 rounded-lg shadow-md">
+      <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center">
         <img 
           src={product.img} 
           alt={product.name} 
@@ -30,7 +30,7 @@ function handlePageChange(newPage: number): void {
   <!-- Paginación -->
   <div class="flex justify-between items-center mt-4">
     <button 
-      class="px-4 py-2 bg-blue-500 text-white rounded-lg"
+      class="px-4 py-2 bg-secondary text-white rounded-lg "
       onclick={() => handlePageChange(currentPage - 1)}
       disabled={currentPage === 1}
     >
@@ -40,7 +40,7 @@ function handlePageChange(newPage: number): void {
       Página {currentPage} de {totalPages}
     </span>
     <button 
-      class="px-4 py-2 bg-blue-500 text-white rounded-lg"
+      class="px-4 py-2 bg-secondary text-white rounded-lg"
       onclick={() => handlePageChange(currentPage + 1)}
       disabled={currentPage === totalPages}
     >
