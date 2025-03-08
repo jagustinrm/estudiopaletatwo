@@ -1,13 +1,21 @@
-<header class="w-full bg-primary text-white fixed top-0 left-0 shadow-md">
-    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-16">
+<header class="w-full bg-gradient-to-r from-primary to-back text-white fixed top-0 left-0">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-25">
       <!-- Logo -->
-      <a href="#" class="text-xl font-bold">Mi Sitio</a>
-  
+      <a href="#" class="text-xl font-bold"><img src="/img/banner.png" class="h-30" alt=""> </a>
+        
       <!-- Menú -->
-      <nav class="hidden md:flex gap-6">
-        <a href="#" class="hover:text-gray-200">Inicio</a>
-        <a href="#" class="hover:text-gray-200">Servicios</a>
-        <a href="#" class="hover:text-gray-200">Contacto</a>
+
+      <nav class="hidden md:flex gap-1 flex-col items-end ">
+        <input 
+        type="text" 
+        placeholder="Buscar productos..." 
+        class="px-4 py-1 rounded-full border text-blue text-2xlfocus:outline-none focus:ring-2 focus:ring-primary w-64 ml-4"
+          />
+        <div class="border-t border-primary" >
+            <a href="#" class=" text-blue text-2xl   hover:text-violet">Inicio</a>
+            <a href="#" class="text-blue text-2xl  hover:text-violet">Servicios</a>
+            <a href="#" class="text-blue text-2xl   hover:text-violet">Contacto</a>
+        </div>  
       </nav>
   
       <!-- Menú Móvil (Hamburguesa) -->
@@ -20,5 +28,5 @@
     </div>
   </header>
   
-  <!-- Agregar padding al body para evitar que el contenido quede tapado -->
+
   <div class="h-16"></div>
